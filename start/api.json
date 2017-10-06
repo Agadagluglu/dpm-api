@@ -1,0 +1,87 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"version": "v1",
+		"title": "Job List",
+    	"description": "A Job list API based on Swagger and built using Node.js"
+	},
+
+	"paths": {
+		"/jobs": {
+			"get": {
+				"tags": ["Jobs"],
+				"operationId": "jobs_get",
+				"consumes": [],
+				"produces": ["application/json",
+				"text/json"],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Job"
+							}
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/jobs/{id}": {
+			"get": {
+				"tags": ["Jobs"],
+				"operationId": "jobs_getById",
+				"consumes": [],
+				"produces": ["application/json",
+				"text/json"],
+				"parameters": [{
+					"name": "id",
+					"in": "path",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Job"
+							}
+						}
+					}
+				},
+				"deprecated": false
+			}
+		}
+	},
+	"definitions": {
+		"Job": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"DPMServerName": {
+					"type": "string"
+				},
+				"StartTime": {
+					"type": "string"
+				},
+				"EndTime": {
+					"type": "string"
+				},
+				"Status": {
+					"type": "string"
+				},
+				"Error": {
+					"type": "string"
+				},
+				"ErrorInfoXml": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}
